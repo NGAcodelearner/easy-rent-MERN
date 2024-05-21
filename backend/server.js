@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/UserRoutes.js";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
+import roomRoutes from "./routes/roomRoutes.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 8000;
@@ -12,6 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
+app.use("/api/rooms", roomRoutes);
 
 app.get("/", (req, res) => {
   res.send("Server is ready!");
